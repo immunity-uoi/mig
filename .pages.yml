@@ -1,0 +1,221 @@
+# ==========================================================
+#  Pages CMS configuration
+#  ---------------------------------------------------------
+#  This file decides what the editing forms look like at
+#  app.pagescms.org. It does not affect the website itself.
+#  Docs: https://pagescms.org/docs
+# ==========================================================
+
+media:
+  - name: photos
+    label: Photos
+    input: images/people
+    output: images/people
+    extensions: [jpg, jpeg, png, webp, svg]
+  - name: images
+    label: Other images
+    input: images
+    output: images
+    extensions: [jpg, jpeg, png, webp, svg]
+
+content:
+  # --------------------------------------------------------
+  # 1. People — the form most people will use
+  # --------------------------------------------------------
+  - name: people
+    label: People
+    path: data/people.json
+    type: file
+    format: json
+    icon: users
+    fields:
+      - name: people
+        label: Group members
+        type: object
+        list:
+          min: 0
+        fields:
+          - { name: name, label: Full name, type: string, required: true }
+          - { name: role, label: Title, type: string, description: "Shown under the name, e.g. Postdoctoral Researcher" }
+          - name: group
+            label: Section
+            type: select
+            description: Which heading this person appears under
+            options:
+              values:
+                - Principal Investigator
+                - Postdoctoral Researchers
+                - Doctoral Candidates
+                - Research Staff
+                - Alumni
+          - name: photo
+            label: Photo
+            type: image
+            media: photos
+            description: "Square works best. Roughly 600x600 pixels is plenty."
+          - { name: bio, label: Short description, type: text, description: "Two or three sentences." }
+          - { name: email, label: Email, type: string, pattern: { regex: "^$|^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$", message: "Enter a valid email address, or leave empty" } }
+          - { name: link, label: Profile link, type: string, description: "Full address starting with https:// — ORCID, Scholar, LinkedIn. Leave empty if none." }
+          - { name: linkLabel, label: Profile link text, type: string, description: "Defaults to 'Profile' if left empty." }
+        options:
+          # what each row shows in the collapsed list view
+          label: "{name}"
+
+  # --------------------------------------------------------
+  # 2. Publications
+  # --------------------------------------------------------
+  - name: publications
+    label: Publications
+    path: data/publications.json
+    type: file
+    format: json
+    icon: book-open
+    fields:
+      - name: publications
+        label: Publications
+        type: object
+        list:
+          min: 0
+        fields:
+          - { name: year, label: Year, type: string, required: true }
+          - { name: authors, label: Authors, type: text, description: "As they should appear, separated by commas." }
+          - { name: title, label: Title, type: text, required: true }
+          - { name: journal, label: Journal, type: string }
+          - { name: detail, label: Volume / pages, type: string, description: "e.g. 7(8), 219" }
+          - { name: doi, label: DOI link, type: string, description: "Full address, e.g. https://doi.org/10.1234/abcd" }
+          - { name: highlight, label: Mark as highlighted, type: boolean }
+        options:
+          label: "{year} — {title}"
+
+  # --------------------------------------------------------
+  # 3. Page text — everything else on the site
+  # --------------------------------------------------------
+  - name: content
+    label: Page text
+    path: data/content.json
+    type: file
+    format: json
+    icon: file-text
+    fields:
+      - name: site
+        label: Site and menu
+        type: object
+        fields:
+          - { name: pageTitle, label: Browser tab title, type: string }
+          - { name: brand, label: Group name, type: string }
+          - { name: navResearch, label: "Menu: Research", type: string }
+          - { name: navPeople, label: "Menu: People", type: string }
+          - { name: navPublications, label: "Menu: Publications", type: string }
+          - { name: navContact, label: "Menu: Contact", type: string }
+
+      - name: hero
+        label: Opening screen
+        type: object
+        fields:
+          - { name: kicker, label: Small line above the headline, type: string }
+          - { name: titleStart, label: "Headline, first part", type: string, description: "Keep the trailing space." }
+          - { name: titleEmphasis, label: "Headline, italic part", type: string }
+          - { name: titleEnd, label: "Headline, final part", type: string, description: "Usually just a full stop." }
+          - { name: lede, label: Intro paragraph, type: text }
+
+      - name: stages
+        label: Animation captions
+        type: object
+        description: One caption per stage of the scroll animation.
+        list: true
+        fields:
+          - { name: label, label: Stage label, type: string, description: "e.g. 01 / Patrolling" }
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: markers, label: Markers line, type: string, description: "e.g. NOX2 · MPO · elastase" }
+        options:
+          label: "{label}"
+
+      - name: research
+        label: Research section
+        type: object
+        fields:
+          - { name: label, label: Section label, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - name: axes
+            label: Research axes
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: text, label: Text, type: text }
+              - name: colour
+                label: Dot colour
+                type: select
+                options:
+                  values: [violet, amber, teal, rose]
+            options:
+              label: "{title}"
+
+      - name: methods
+        label: Methods section
+        type: object
+        fields:
+          - { name: label, label: Section label, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - name: items
+            label: Method list
+            type: object
+            list: true
+            fields:
+              - { name: name, label: Method, type: string }
+              - { name: note, label: Note on the right, type: string }
+            options:
+              label: "{name}"
+
+      - name: quote
+        label: Pull quote
+        type: object
+        fields:
+          - { name: text, label: Quote, type: text, description: "Leave empty to hide this section." }
+          - { name: attribution, label: Attribution, type: string }
+
+      - name: peopleSection
+        label: People section headings
+        type: object
+        fields:
+          - { name: label, label: Section label, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - name: groupOrder
+            label: Order of sections
+            type: string
+            list: true
+            description: "The order these headings appear in. Must match the Section field on each person."
+
+      - name: publicationsSection
+        label: Publications section headings
+        type: object
+        fields:
+          - { name: label, label: Section label, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - { name: fullListLabel, label: Button text, type: string, description: "e.g. Full list on ORCID. Leave empty to hide the button." }
+          - { name: fullListUrl, label: Button link, type: string }
+
+      - name: contact
+        label: Footer
+        type: object
+        fields:
+          - { name: label, label: Section label, type: string }
+          - name: columns
+            label: Footer columns
+            type: object
+            list:
+              max: 4
+            fields:
+              - { name: title, label: Column title, type: string }
+              - { name: text, label: Column text, type: text, description: "Line breaks are kept." }
+            options:
+              label: "{title}"
+
+settings:
+  content:
+    merge: true
