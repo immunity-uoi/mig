@@ -103,6 +103,16 @@ content:
         fields:
           - { name: pageTitle, label: Browser tab title, type: string }
           - { name: brand, label: Group name, type: string }
+          - name: logo
+            label: Logo (top left)
+            type: image
+            media: images
+            description: "Appears next to the group name. Any shape works - it is scaled to 22 pixels tall. Upload it at 60 pixels tall or more so it stays sharp. Leave empty to hide the logo entirely."
+          - name: favicon
+            label: Browser tab icon
+            type: image
+            media: images
+            description: "The small icon in the browser tab. A square image works best."
           - { name: navResearch, label: "Menu: Research", type: string }
           - { name: navPeople, label: "Menu: People", type: string }
           - { name: navPublications, label: "Menu: Publications", type: string }
