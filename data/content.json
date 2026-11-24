@@ -1,0 +1,129 @@
+{
+  "site": {
+    "pageTitle": "Molecular Immunology Group — Neutrophils & Innate Immunity",
+    "brand": "Molecular Immunology Group",
+    "navResearch": "Research",
+    "navPeople": "People",
+    "navPublications": "Publications",
+    "navContact": "Contact"
+  },
+  "hero": {
+    "kicker": "Molecular Immunology Group",
+    "titleStart": "The first responder is a ",
+    "titleEmphasis": "single cell",
+    "titleEnd": ".",
+    "lede": "Neutrophils reach an infected tissue within minutes and resolve most microbial encounters before adaptive immunity is ever engaged. Scroll to follow one through its effector programme."
+  },
+  "stages": [
+    {
+      "label": "01 / Patrolling",
+      "heading": "Circulating surveillance",
+      "text": "Constituting roughly 50-70% of circulating leukocytes in humans, neutrophils are maintained in a quiescent yet primed state, surveying the vasculature with a lifespan measured in hours.",
+      "markers": "CD62L · CXCR2 · segmented nucleus"
+    },
+    {
+      "label": "02 / Chemotaxis",
+      "heading": "Reading the gradient",
+      "text": "Formylated peptides, C5a and chemokines establish a soluble gradient. Receptor occupancy is translated into polarised actin assembly, which appears to commit the cell to a single leading edge within seconds.",
+      "markers": "fMLP · C5a · PI3Kγ · Rac1"
+    },
+    {
+      "label": "03 / Phagocytosis",
+      "heading": "Engulfment",
+      "text": "Opsonised targets are internalised through Fcγ and complement receptors. The nascent phagosome is sealed within approximately one minute and is progressively acidified.",
+      "markers": "FcγRIIA · CR3 · phagosome"
+    },
+    {
+      "label": "04 / Degranulation",
+      "heading": "The oxidative burst",
+      "text": "Assembly of the NADPH oxidase complex on the phagosomal membrane generates superoxide, while azurophilic granules deliver myeloperoxidase and elastase. The response is potent, short-lived, and necessarily contained.",
+      "markers": "NOX2 · MPO · elastase · ROS"
+    },
+    {
+      "label": "05 / NET formation",
+      "heading": "Extracellular traps",
+      "text": "Under defined stimuli, chromatin is decondensed and released as extracellular traps that immobilise pathogens. The same mechanism is implicated in thrombosis and autoimmunity - not a failure of regulation, but regulation operating at the edge of its range.",
+      "markers": "PAD4 · citH3 · cfDNA · NETosis"
+    }
+  ],
+  "research": {
+    "label": "Research",
+    "heading": "Innate immunity, resolved at molecular scale.",
+    "intro": "The group examines how neutrophil effector programmes are initiated, amplified and terminated, with particular attention to the point at which a protective response becomes a pathological one. Work combines primary human cells, live imaging and targeted proteomics.",
+    "axes": [
+      {
+        "title": "Receptor-proximal signalling",
+        "text": "How ligand occupancy at GPCRs and Fc receptors is converted into the cytoskeletal asymmetry that defines a leading edge.",
+        "colour": "violet"
+      },
+      {
+        "title": "Granule biology",
+        "text": "Cargo sorting, mobilisation hierarchy and the kinetics of release across azurophilic, specific and gelatinase granule subsets.",
+        "colour": "amber"
+      },
+      {
+        "title": "Phagosomal chemistry",
+        "text": "Spatial and temporal control of the oxidative burst, and the mechanisms limiting collateral damage to surrounding tissue.",
+        "colour": "teal"
+      },
+      {
+        "title": "NETs in disease",
+        "text": "Contribution of extracellular traps to immunothrombosis, autoantibody generation and chronic inflammatory pathology.",
+        "colour": "rose"
+      }
+    ]
+  },
+  "methods": {
+    "label": "Methods",
+    "heading": "A deliberately narrow toolkit, applied carefully.",
+    "intro": "Primary human neutrophils are short-lived and readily activated by handling; every assay in the group is benchmarked against an unstimulated control drawn from the same donor within the same hour.",
+    "items": [
+      { "name": "Live confocal imaging", "note": "chemotaxis · 4D" },
+      { "name": "Microfluidic gradient chambers", "note": "fMLP · C5a" },
+      { "name": "Flow cytometry", "note": "18-colour panel" },
+      { "name": "Granule proteomics", "note": "LC-MS/MS" },
+      { "name": "ROS kinetics", "note": "luminol · DHR" },
+      { "name": "NET quantification", "note": "citH3 · cfDNA" }
+    ]
+  },
+  "quote": {
+    "text": "The neutrophil is often described as a blunt instrument. The evidence suggests the opposite: a cell capable of graded, reversible and spatially confined decisions, which happens to be committed to them irreversibly.",
+    "attribution": "Group research statement"
+  },
+  "peopleSection": {
+    "label": "People",
+    "heading": "The group.",
+    "intro": "",
+    "groupOrder": [
+      "Principal Investigator",
+      "Postdoctoral Researchers",
+      "Doctoral Candidates",
+      "Research Staff",
+      "Alumni"
+    ]
+  },
+  "publicationsSection": {
+    "label": "Publications",
+    "heading": "Selected publications.",
+    "intro": "A complete and continuously updated list is available through the group's ORCID and PubMed records.",
+    "fullListLabel": "",
+    "fullListUrl": ""
+  },
+  "contact": {
+    "label": "Contact",
+    "columns": [
+      {
+        "title": "Molecular Immunology Group",
+        "text": "Department · Institution\nStreet address, City"
+      },
+      {
+        "title": "Contact",
+        "text": "email@institution.edu\n+30 000 000 0000"
+      },
+      {
+        "title": "Open positions",
+        "text": "Enquiries from prospective doctoral candidates are welcome year-round."
+      }
+    ]
+  }
+}

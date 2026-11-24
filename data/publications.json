@@ -1,0 +1,22 @@
+{
+  "publications": [
+    {
+      "year": "2026",
+      "authors": "Example A, Example B, Example C",
+      "title": "Replace this entry with a real publication; the title carries the DOI link when one is given.",
+      "journal": "Journal Name",
+      "detail": "12(3), 101-115",
+      "doi": "",
+      "highlight": true
+    },
+    {
+      "year": "2025",
+      "authors": "Example A, Example D",
+      "title": "A second example entry, so the layout can be judged with more than one row.",
+      "journal": "Journal Name",
+      "detail": "9(8), 219",
+      "doi": "",
+      "highlight": false
+    }
+  ]
+}

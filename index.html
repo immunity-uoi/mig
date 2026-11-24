@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Molecular Immunology Group</title>
+<meta name="description" content="Molecular Immunology Group — research on neutrophils and innate immunity.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#">
+    <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+      <circle cx="9" cy="9" r="8" fill="none" stroke="#15151a" stroke-width="1"/>
+      <circle cx="6.6" cy="7.6" r="2.5" fill="#6d28d9" opacity=".85"/>
+      <circle cx="11" cy="10.6" r="2" fill="#6d28d9" opacity=".55"/>
+      <circle cx="11.4" cy="6.4" r="1.1" fill="#c2740a"/>
+    </svg>
+    <span id="brandText">Molecular Immunology Group</span>
+  </a>
+  <div class="links">
+    <a href="#research" id="navResearch">Research</a>
+    <a href="#people" id="navPeople">People</a>
+    <a href="#publications" id="navPublications">Publications</a>
+    <a href="#contact" id="navContact">Contact</a>
+  </div>
+</nav>
+
+<!-- ============ scroll-linked 3D scene ============ -->
+<div id="zone">
+  <div id="pin">
+    <canvas id="stage"></canvas>
+
+    <div class="hero"><div>
+      <p class="kicker" id="heroKicker"></p>
+      <h1><span id="heroTitleStart"></span><em id="heroTitleEm"></em><span id="heroTitleEnd"></span></h1>
+      <p class="lede" id="heroLede"></p>
+    </div></div>
+
+    <!-- stage captions are generated from data/content.json -->
+    <div id="captions"></div>
+
+    <div id="hud">PROGRESS <span id="pct">0%</span><div id="track"><i></i></div></div>
+  </div>
+</div>
+
+<main>
+  <p id="notice"></p>
+
+  <!-- ============ research ============ -->
+  <section id="research" class="wrap">
+    <p class="sect-label reveal" id="resLabel"></p>
+    <h3 class="big reveal" id="resHeading"></h3>
+    <p class="intro reveal" id="resIntro"></p>
+    <div class="axes" id="axes"></div>
+  </section>
+
+  <!-- ============ methods ============ -->
+  <section id="methods" class="wrap tight">
+    <div class="split">
+      <div>
+        <p class="sect-label reveal" id="metLabel"></p>
+        <h3 class="big reveal" id="metHeading" style="font-size:clamp(1.5rem,3vw,2rem)"></h3>
+        <p class="intro reveal" id="metIntro" style="margin-bottom:0"></p>
+      </div>
+      <ul class="methods reveal" id="methodList"></ul>
+    </div>
+  </section>
+
+  <!-- ============ quote ============ -->
+  <section class="wrap tight" id="quoteSection">
+    <blockquote class="reveal"><span id="quoteText"></span><cite id="quoteCite"></cite></blockquote>
+  </section>
+
+  <!-- ============ people ============ -->
+  <section id="people" class="wrap tight">
+    <p class="sect-label reveal" id="peopleLabel"></p>
+    <h3 class="big reveal" id="peopleHeading"></h3>
+    <p class="intro reveal" id="peopleIntro"></p>
+    <div id="peopleHost"></div>
+  </section>
+
+  <!-- ============ publications ============ -->
+  <section id="publications" class="wrap tight">
+    <p class="sect-label reveal" id="pubLabel"></p>
+    <h3 class="big reveal" id="pubHeading"></h3>
+    <p class="intro reveal" id="pubIntro"></p>
+    <ul class="pubs reveal" id="pubList"></ul>
+    <a class="fullList" id="pubFullList" href="#"></a>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="fwrap" id="footerCols"></div>
+</footer>
+
+<script type="module" src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "people": [
+    {
+      "name": "Example Name",
+      "role": "Principal Investigator",
+      "group": "Principal Investigator",
+      "photo": "images/people/placeholder.svg",
+      "bio": "Replace this entry with the real one. Two or three sentences work best: research focus, background, and anything a visiting researcher would want to know.",
+      "email": "",
+      "link": "",
+      "linkLabel": ""
+    },
+    {
+      "name": "Example Postdoc",
+      "role": "Postdoctoral Researcher",
+      "group": "Postdoctoral Researchers",
+      "photo": "images/people/placeholder.svg",
+      "bio": "One or two sentences on what this person works on within the group.",
+      "email": "",
+      "link": "",
+      "linkLabel": ""
+    },
+    {
+      "name": "Example Doctoral Candidate",
+      "role": "PhD Candidate",
+      "group": "Doctoral Candidates",
+      "photo": "images/people/placeholder.svg",
+      "bio": "Thesis topic in one sentence, plus the technique the person is responsible for.",
+      "email": "",
+      "link": "",
+      "linkLabel": ""
+    }
+  ]
+}
