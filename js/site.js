@@ -44,6 +44,18 @@ function renderShell(c) {
   const s = c.site || {};
   if (s.pageTitle) document.title = s.pageTitle;
   setText('#brandText', s.brand);
+
+  /* logo: falls back to the shipped mark, and hides itself if the file is gone */
+  const logo = $('#brandLogo');
+  if (logo) {
+    logo.src = asset(s.logo || 'images/logo.svg');
+    logo.alt = s.brand || '';
+    logo.hidden = false;
+    logo.addEventListener('error', () => { logo.hidden = true; }, { once: true });
+  }
+  const fav = $('#favicon');
+  if (fav && s.favicon) fav.href = asset(s.favicon);
+
   setText('#navResearch', s.navResearch);
   setText('#navPeople', s.navPeople);
   setText('#navPublications', s.navPublications);

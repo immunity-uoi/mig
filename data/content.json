@@ -2,6 +2,8 @@
   "site": {
     "pageTitle": "Molecular Immunology Group — Neutrophils & Innate Immunity",
     "brand": "Molecular Immunology Group",
+    "logo": "images/logo.svg",
+    "favicon": "images/favicon.svg",
     "navResearch": "Research",
     "navPeople": "People",
     "navPublications": "Publications",
@@ -78,12 +80,30 @@
     "heading": "A deliberately narrow toolkit, applied carefully.",
     "intro": "Primary human neutrophils are short-lived and readily activated by handling; every assay in the group is benchmarked against an unstimulated control drawn from the same donor within the same hour.",
     "items": [
-      { "name": "Live confocal imaging", "note": "chemotaxis · 4D" },
-      { "name": "Microfluidic gradient chambers", "note": "fMLP · C5a" },
-      { "name": "Flow cytometry", "note": "18-colour panel" },
-      { "name": "Granule proteomics", "note": "LC-MS/MS" },
-      { "name": "ROS kinetics", "note": "luminol · DHR" },
-      { "name": "NET quantification", "note": "citH3 · cfDNA" }
+      {
+        "name": "Live confocal imaging",
+        "note": "chemotaxis · 4D"
+      },
+      {
+        "name": "Microfluidic gradient chambers",
+        "note": "fMLP · C5a"
+      },
+      {
+        "name": "Flow cytometry",
+        "note": "18-colour panel"
+      },
+      {
+        "name": "Granule proteomics",
+        "note": "LC-MS/MS"
+      },
+      {
+        "name": "ROS kinetics",
+        "note": "luminol · DHR"
+      },
+      {
+        "name": "NET quantification",
+        "note": "citH3 · cfDNA"
+      }
     ]
   },
   "quote": {

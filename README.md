@@ -51,13 +51,24 @@ Three sections appear in the sidebar:
 |---|---|
 | **People** | One entry per person: name, title, which heading they sit under, photo, short description, email, profile link |
 | **Publications** | One entry per paper: year, authors, title, journal, volume/pages, DOI, optional highlight star |
-| **Page text** | Everything else - menu labels, the opening screen, the five animation captions, research axes, methods, pull quote, footer |
+| **Page text** | Everything else - the logo, menu labels, the opening screen, the five animation captions, research axes, methods, pull quote, footer |
 
 Adding a person: open **People**, click the **+** on the list, fill the form,
 drag a photo into the Photo field, press **Save**. The site updates within a
 minute or so.
 
-**3. Invite colleagues**
+**3. Changing the logo**
+
+Open **Page text → Site and menu**. The *Logo (top left)* field takes an image by
+drag-and-drop; *Browser tab icon* sets the small icon in the browser tab.
+
+The logo is scaled to 22 pixels tall and keeps its own proportions, so wide
+institutional logos are fine. Upload it at 60 pixels tall or more so it stays
+sharp on high-resolution screens. Leaving the field empty hides the logo and
+keeps only the group name. If the file is ever missing, the logo is hidden
+rather than shown broken.
+
+**4. Invite colleagues**
 
 In Pages CMS, invite people by email. They do **not** need a GitHub account.
 They see only the forms - never code, JSON or git.
@@ -102,9 +113,11 @@ index.html              page structure (empty containers, filled at load)
 css/site.css            all styling; colours and spacing live in :root at the top
 js/site.js              reads /data, builds the page, never writes raw HTML
 js/scene.js             the scroll-linked 3D neutrophil animation
-data/content.json       page text
+data/content.json       page text, including which logo file to use
 data/people.json        group members
 data/publications.json  publication list
+images/logo.svg         logo shown in the top bar (replaceable from the CMS)
+images/favicon.svg      browser tab icon (replaceable from the CMS)
 images/people/          photographs
 .pages.yml              describes the editing forms for Pages CMS
 .nojekyll               tells GitHub Pages to serve files as they are
