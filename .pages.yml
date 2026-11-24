@@ -1,16 +1,21 @@
 # ==========================================================
 #  Pages CMS configuration
 #  ---------------------------------------------------------
-#  This file decides what the editing forms look like at
-#  app.pagescms.org. It does not affect the website itself.
+#  Decides what the editing forms look like at app.pagescms.org.
+#  It does not affect the website itself.
 #  Docs: https://pagescms.org/docs
 # ==========================================================
 
 media:
   - name: photos
-    label: Photos
+    label: Portrait photos
     input: images/people
     output: images/people
+    extensions: [jpg, jpeg, png, webp, svg]
+  - name: logos
+    label: Partner and funder logos
+    input: images/logos
+    output: images/logos
     extensions: [jpg, jpeg, png, webp, svg]
   - name: images
     label: Other images
@@ -19,9 +24,10 @@ media:
     extensions: [jpg, jpeg, png, webp, svg]
 
 content:
-  # --------------------------------------------------------
-  # 1. People — the form most people will use
-  # --------------------------------------------------------
+
+  # ========================================================
+  # 1. People
+  # ========================================================
   - name: people
     label: People
     path: data/people.json
@@ -32,15 +38,14 @@ content:
       - name: people
         label: Group members
         type: object
-        list:
-          min: 0
+        list: true
         fields:
           - { name: name, label: Full name, type: string, required: true }
           - { name: role, label: Title, type: string, description: "Shown under the name, e.g. Postdoctoral Researcher" }
           - name: group
             label: Section
             type: select
-            description: Which heading this person appears under
+            description: "Which heading this person appears under. The order of headings is set in Page text, under People."
             options:
               values:
                 - Principal Investigator
@@ -52,18 +57,17 @@ content:
             label: Photo
             type: image
             media: photos
-            description: "Square works best. Roughly 600x600 pixels is plenty."
+            description: "Square works best, around 600x600 pixels."
           - { name: bio, label: Short description, type: text, description: "Two or three sentences." }
-          - { name: email, label: Email, type: string, pattern: { regex: "^$|^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$", message: "Enter a valid email address, or leave empty" } }
-          - { name: link, label: Profile link, type: string, description: "Full address starting with https:// — ORCID, Scholar, LinkedIn. Leave empty if none." }
-          - { name: linkLabel, label: Profile link text, type: string, description: "Defaults to 'Profile' if left empty." }
+          - { name: email, label: Email, type: string }
+          - { name: link, label: Profile link, type: string, description: "Full address starting with https:// - ORCID, Scholar, LinkedIn. Leave empty if none." }
+          - { name: linkLabel, label: Profile link text, type: string, description: "Defaults to 'Profile'." }
         options:
-          # what each row shows in the collapsed list view
           label: "{name}"
 
-  # --------------------------------------------------------
+  # ========================================================
   # 2. Publications
-  # --------------------------------------------------------
+  # ========================================================
   - name: publications
     label: Publications
     path: data/publications.json
@@ -74,22 +78,75 @@ content:
       - name: publications
         label: Publications
         type: object
-        list:
-          min: 0
+        list: true
         fields:
           - { name: year, label: Year, type: string, required: true }
-          - { name: authors, label: Authors, type: text, description: "As they should appear, separated by commas." }
+          - { name: authors, label: Authors, type: text }
           - { name: title, label: Title, type: text, required: true }
           - { name: journal, label: Journal, type: string }
           - { name: detail, label: Volume / pages, type: string, description: "e.g. 7(8), 219" }
           - { name: doi, label: DOI link, type: string, description: "Full address, e.g. https://doi.org/10.1234/abcd" }
-          - { name: highlight, label: Mark as highlighted, type: boolean }
+          - { name: highlight, label: Mark with a star, type: boolean }
         options:
-          label: "{year} — {title}"
+          label: "{year} - {title}"
 
-  # --------------------------------------------------------
-  # 3. Page text — everything else on the site
-  # --------------------------------------------------------
+  # ========================================================
+  # 3. News
+  # ========================================================
+  - name: news
+    label: News
+    path: data/news.json
+    type: file
+    format: json
+    icon: megaphone
+    fields:
+      - name: news
+        label: Announcements
+        type: object
+        list: true
+        fields:
+          - { name: date, label: Date, type: date, options: { format: "yyyy-MM-dd" }, description: "Newest entries appear first automatically." }
+          - { name: title, label: Title, type: string, required: true }
+          - { name: text, label: Text, type: text }
+          - name: image
+            label: Image
+            type: image
+            media: images
+            description: "Optional. Leave empty to keep the entry compact."
+          - { name: link, label: Link, type: string, description: "Optional. Full address starting with https://" }
+          - { name: linkLabel, label: Link text, type: string, description: "Defaults to 'Read more'." }
+        options:
+          label: "{date} - {title}"
+
+  # ========================================================
+  # 4. Collaborations
+  # ========================================================
+  - name: collaborations
+    label: Collaborations
+    path: data/collaborations.json
+    type: file
+    format: json
+    icon: handshake
+    fields:
+      - name: collaborations
+        label: Partners and funders
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string, required: true, description: "Shown as text when no logo is uploaded." }
+          - { name: note, label: Note underneath, type: string, description: "e.g. Joint work on neutrophil imaging, or a grant reference." }
+          - name: logo
+            label: Logo
+            type: image
+            media: logos
+            description: "Optional. Shown in grey, turning to colour when the visitor hovers over it."
+          - { name: link, label: Website, type: string, description: "Optional. Full address starting with https://" }
+        options:
+          label: "{name}"
+
+  # ========================================================
+  # 5. Page text and sections
+  # ========================================================
   - name: content
     label: Page text
     path: data/content.json
@@ -97,8 +154,9 @@ content:
     format: json
     icon: file-text
     fields:
+
       - name: site
-        label: Site and menu
+        label: Site, logo and menu
         type: object
         fields:
           - { name: pageTitle, label: Browser tab title, type: string }
@@ -107,16 +165,13 @@ content:
             label: Logo (top left)
             type: image
             media: images
-            description: "Appears next to the group name. Any shape works - it is scaled to 22 pixels tall. Upload it at 60 pixels tall or more so it stays sharp. Leave empty to hide the logo entirely."
+            description: "Scaled to 22 pixels tall, keeping its proportions. Upload it at 60 pixels tall or more so it stays sharp. Leave empty to show only the group name."
           - name: favicon
             label: Browser tab icon
             type: image
             media: images
             description: "The small icon in the browser tab. A square image works best."
-          - { name: navResearch, label: "Menu: Research", type: string }
-          - { name: navPeople, label: "Menu: People", type: string }
-          - { name: navPublications, label: "Menu: Publications", type: string }
-          - { name: navContact, label: "Menu: Contact", type: string }
+          - { name: contactMenuLabel, label: "Menu entry for the footer", type: string, description: "Leave empty to keep Contact out of the menu." }
 
       - name: hero
         label: Opening screen
@@ -128,10 +183,78 @@ content:
           - { name: titleEnd, label: "Headline, final part", type: string, description: "Usually just a full stop." }
           - { name: lede, label: Intro paragraph, type: text }
 
+      # ------------------------------------------------------
+      # The list that controls the page itself
+      # ------------------------------------------------------
+      - name: sections
+        label: Sections and menu
+        type: object
+        description: >
+          Each entry is one section of the page. Drag to reorder, use the switch
+          to hide one without deleting it, and press + to add a new one. The
+          menu is built from these entries, in this order.
+        list: true
+        fields:
+          - name: enabled
+            label: Show this section
+            type: boolean
+            description: "Turn off to hide the section and its menu entry, keeping the content for later."
+          - name: menuLabel
+            label: Menu entry
+            type: string
+            description: "What appears in the top menu. Leave empty to show the section on the page but keep it out of the menu."
+          - name: id
+            label: Anchor name
+            type: string
+            required: true
+            description: "Used in the web address, e.g. 'news' gives .../#news. Lower-case letters, numbers and hyphens only, and different from every other section."
+          - name: type
+            label: Kind of section
+            type: select
+            description: >
+              Decides how the content below is laid out.
+              text = headings and paragraphs ·
+              cards = grid of short cards ·
+              list = two-column list ·
+              quote = a single pull quote ·
+              people = the People tab ·
+              publications = the Publications tab ·
+              news = the News tab ·
+              logos = the Collaborations tab.
+            options:
+              values: [text, cards, list, quote, people, publications, news, logos]
+          - { name: label, label: Small label above the heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro paragraph, type: text }
+          - { name: quote, label: "Quote (only for type 'quote')", type: text }
+          - { name: attribution, label: "Attribution (only for type 'quote')", type: string }
+          - name: items
+            label: "Entries (only for types text, cards and list)"
+            type: object
+            description: >
+              Ignored by people, publications, news, logos and quote, which take
+              their content from their own tabs.
+            list: true
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: text, label: "Text (text and cards)", type: text }
+              - { name: note, label: "Right-hand note (list only)", type: string }
+              - name: colour
+                label: "Dot colour (cards only)"
+                type: select
+                options:
+                  values: [violet, amber, teal, rose]
+              - { name: image, label: Image, type: image, media: images }
+              - { name: link, label: Link, type: string }
+            options:
+              label: "{title}"
+        options:
+          label: "{menuLabel} ({type})"
+
       - name: stages
         label: Animation captions
         type: object
-        description: One caption per stage of the scroll animation.
+        description: One caption per stage of the opening animation.
         list: true
         fields:
           - { name: label, label: Stage label, type: string, description: "e.g. 01 / Patrolling" }
@@ -141,80 +264,23 @@ content:
         options:
           label: "{label}"
 
-      - name: research
-        label: Research section
-        type: object
-        fields:
-          - { name: label, label: Section label, type: string }
-          - { name: heading, label: Heading, type: string }
-          - { name: intro, label: Intro, type: text }
-          - name: axes
-            label: Research axes
-            type: object
-            list: true
-            fields:
-              - { name: title, label: Title, type: string }
-              - { name: text, label: Text, type: text }
-              - name: colour
-                label: Dot colour
-                type: select
-                options:
-                  values: [violet, amber, teal, rose]
-            options:
-              label: "{title}"
+      - name: peopleGroupOrder
+        label: Order of the People headings
+        type: string
+        list: true
+        description: "Must match the Section field on each person exactly."
 
-      - name: methods
-        label: Methods section
+      - name: publicationsButton
+        label: Button under the publications
         type: object
         fields:
-          - { name: label, label: Section label, type: string }
-          - { name: heading, label: Heading, type: string }
-          - { name: intro, label: Intro, type: text }
-          - name: items
-            label: Method list
-            type: object
-            list: true
-            fields:
-              - { name: name, label: Method, type: string }
-              - { name: note, label: Note on the right, type: string }
-            options:
-              label: "{name}"
-
-      - name: quote
-        label: Pull quote
-        type: object
-        fields:
-          - { name: text, label: Quote, type: text, description: "Leave empty to hide this section." }
-          - { name: attribution, label: Attribution, type: string }
-
-      - name: peopleSection
-        label: People section headings
-        type: object
-        fields:
-          - { name: label, label: Section label, type: string }
-          - { name: heading, label: Heading, type: string }
-          - { name: intro, label: Intro, type: text }
-          - name: groupOrder
-            label: Order of sections
-            type: string
-            list: true
-            description: "The order these headings appear in. Must match the Section field on each person."
-
-      - name: publicationsSection
-        label: Publications section headings
-        type: object
-        fields:
-          - { name: label, label: Section label, type: string }
-          - { name: heading, label: Heading, type: string }
-          - { name: intro, label: Intro, type: text }
-          - { name: fullListLabel, label: Button text, type: string, description: "e.g. Full list on ORCID. Leave empty to hide the button." }
-          - { name: fullListUrl, label: Button link, type: string }
+          - { name: label, label: Button text, type: string, description: "e.g. Full list on ORCID. Leave empty to hide the button." }
+          - { name: url, label: Button link, type: string }
 
       - name: contact
         label: Footer
         type: object
         fields:
-          - { name: label, label: Section label, type: string }
           - name: columns
             label: Footer columns
             type: object
@@ -225,7 +291,3 @@ content:
               - { name: text, label: Column text, type: text, description: "Line breaks are kept." }
             options:
               label: "{title}"
-
-settings:
-  content:
-    merge: true
