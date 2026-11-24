@@ -18,12 +18,8 @@
     <img id="brandLogo" class="logo" src="images/logo.svg" alt="">
     <span id="brandText">Molecular Immunology Group</span>
   </a>
-  <div class="links">
-    <a href="#research" id="navResearch">Research</a>
-    <a href="#people" id="navPeople">People</a>
-    <a href="#publications" id="navPublications">Publications</a>
-    <a href="#contact" id="navContact">Contact</a>
-  </div>
+  <div class="links" id="navLinks"></div>
+
 </nav>
 
 <!-- ============ scroll-linked 3D scene ============ -->
@@ -44,50 +40,8 @@
   </div>
 </div>
 
-<main>
+<main id="main">
   <p id="notice"></p>
-
-  <!-- ============ research ============ -->
-  <section id="research" class="wrap">
-    <p class="sect-label reveal" id="resLabel"></p>
-    <h3 class="big reveal" id="resHeading"></h3>
-    <p class="intro reveal" id="resIntro"></p>
-    <div class="axes" id="axes"></div>
-  </section>
-
-  <!-- ============ methods ============ -->
-  <section id="methods" class="wrap tight">
-    <div class="split">
-      <div>
-        <p class="sect-label reveal" id="metLabel"></p>
-        <h3 class="big reveal" id="metHeading" style="font-size:clamp(1.5rem,3vw,2rem)"></h3>
-        <p class="intro reveal" id="metIntro" style="margin-bottom:0"></p>
-      </div>
-      <ul class="methods reveal" id="methodList"></ul>
-    </div>
-  </section>
-
-  <!-- ============ quote ============ -->
-  <section class="wrap tight" id="quoteSection">
-    <blockquote class="reveal"><span id="quoteText"></span><cite id="quoteCite"></cite></blockquote>
-  </section>
-
-  <!-- ============ people ============ -->
-  <section id="people" class="wrap tight">
-    <p class="sect-label reveal" id="peopleLabel"></p>
-    <h3 class="big reveal" id="peopleHeading"></h3>
-    <p class="intro reveal" id="peopleIntro"></p>
-    <div id="peopleHost"></div>
-  </section>
-
-  <!-- ============ publications ============ -->
-  <section id="publications" class="wrap tight">
-    <p class="sect-label reveal" id="pubLabel"></p>
-    <h3 class="big reveal" id="pubHeading"></h3>
-    <p class="intro reveal" id="pubIntro"></p>
-    <ul class="pubs reveal" id="pubList"></ul>
-    <a class="fullList" id="pubFullList" href="#"></a>
-  </section>
 </main>
 
 <footer id="contact">

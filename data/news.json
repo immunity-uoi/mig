@@ -1,0 +1,20 @@
+{
+  "news": [
+    {
+      "date": "2026-11-10",
+      "title": "Replace this entry with a real announcement",
+      "text": "A few sentences are enough. The date is shown on the left and controls the order, so the newest entry appears first as long as the dates are written as YYYY-MM-DD.",
+      "link": "",
+      "linkLabel": "",
+      "image": ""
+    },
+    {
+      "date": "2026-09-01",
+      "title": "A second example entry",
+      "text": "Entries with an image show it alongside the text. Leaving the image field empty is perfectly fine and keeps the list compact.",
+      "link": "",
+      "linkLabel": "",
+      "image": ""
+    }
+  ]
+}

@@ -4,10 +4,7 @@
     "brand": "Molecular Immunology Group",
     "logo": "images/logo.svg",
     "favicon": "images/favicon.svg",
-    "navResearch": "Research",
-    "navPeople": "People",
-    "navPublications": "Publications",
-    "navContact": "Contact"
+    "contactMenuLabel": "Contact"
   },
   "hero": {
     "kicker": "Molecular Immunology Group",
@@ -48,89 +45,144 @@
       "markers": "PAD4 · citH3 · cfDNA · NETosis"
     }
   ],
-  "research": {
-    "label": "Research",
-    "heading": "Innate immunity, resolved at molecular scale.",
-    "intro": "The group examines how neutrophil effector programmes are initiated, amplified and terminated, with particular attention to the point at which a protective response becomes a pathological one. Work combines primary human cells, live imaging and targeted proteomics.",
-    "axes": [
-      {
-        "title": "Receptor-proximal signalling",
-        "text": "How ligand occupancy at GPCRs and Fc receptors is converted into the cytoskeletal asymmetry that defines a leading edge.",
-        "colour": "violet"
-      },
-      {
-        "title": "Granule biology",
-        "text": "Cargo sorting, mobilisation hierarchy and the kinetics of release across azurophilic, specific and gelatinase granule subsets.",
-        "colour": "amber"
-      },
-      {
-        "title": "Phagosomal chemistry",
-        "text": "Spatial and temporal control of the oxidative burst, and the mechanisms limiting collateral damage to surrounding tissue.",
-        "colour": "teal"
-      },
-      {
-        "title": "NETs in disease",
-        "text": "Contribution of extracellular traps to immunothrombosis, autoantibody generation and chronic inflammatory pathology.",
-        "colour": "rose"
-      }
-    ]
-  },
-  "methods": {
-    "label": "Methods",
-    "heading": "A deliberately narrow toolkit, applied carefully.",
-    "intro": "Primary human neutrophils are short-lived and readily activated by handling; every assay in the group is benchmarked against an unstimulated control drawn from the same donor within the same hour.",
-    "items": [
-      {
-        "name": "Live confocal imaging",
-        "note": "chemotaxis · 4D"
-      },
-      {
-        "name": "Microfluidic gradient chambers",
-        "note": "fMLP · C5a"
-      },
-      {
-        "name": "Flow cytometry",
-        "note": "18-colour panel"
-      },
-      {
-        "name": "Granule proteomics",
-        "note": "LC-MS/MS"
-      },
-      {
-        "name": "ROS kinetics",
-        "note": "luminol · DHR"
-      },
-      {
-        "name": "NET quantification",
-        "note": "citH3 · cfDNA"
-      }
-    ]
-  },
-  "quote": {
-    "text": "The neutrophil is often described as a blunt instrument. The evidence suggests the opposite: a cell capable of graded, reversible and spatially confined decisions, which happens to be committed to them irreversibly.",
-    "attribution": "Group research statement"
-  },
-  "peopleSection": {
-    "label": "People",
-    "heading": "The group.",
-    "intro": "",
-    "groupOrder": [
-      "Principal Investigator",
-      "Postdoctoral Researchers",
-      "Doctoral Candidates",
-      "Research Staff",
-      "Alumni"
-    ]
-  },
-  "publicationsSection": {
-    "label": "Publications",
-    "heading": "Selected publications.",
-    "intro": "A complete and continuously updated list is available through the group's ORCID and PubMed records.",
-    "fullListLabel": "",
-    "fullListUrl": ""
+  "sections": [
+    {
+      "id": "research",
+      "menuLabel": "Research",
+      "enabled": true,
+      "type": "cards",
+      "label": "Research",
+      "heading": "Innate immunity, resolved at molecular scale.",
+      "intro": "The group examines how neutrophil effector programmes are initiated, amplified and terminated, with particular attention to the point at which a protective response becomes a pathological one. Work combines primary human cells, live imaging and targeted proteomics.",
+      "quote": "",
+      "attribution": "",
+      "items": [
+        {
+          "title": "Receptor-proximal signalling",
+          "text": "How ligand occupancy at GPCRs and Fc receptors is converted into the cytoskeletal asymmetry that defines a leading edge.",
+          "note": "",
+          "image": "",
+          "link": "",
+          "colour": "violet"
+        },
+        {
+          "title": "Granule biology",
+          "text": "Cargo sorting, mobilisation hierarchy and the kinetics of release across azurophilic, specific and gelatinase granule subsets.",
+          "note": "",
+          "image": "",
+          "link": "",
+          "colour": "amber"
+        },
+        {
+          "title": "Phagosomal chemistry",
+          "text": "Spatial and temporal control of the oxidative burst, and the mechanisms limiting collateral damage to surrounding tissue.",
+          "note": "",
+          "image": "",
+          "link": "",
+          "colour": "teal"
+        },
+        {
+          "title": "NETs in disease",
+          "text": "Contribution of extracellular traps to immunothrombosis, autoantibody generation and chronic inflammatory pathology.",
+          "note": "",
+          "image": "",
+          "link": "",
+          "colour": "rose"
+        }
+      ]
+    },
+    {
+      "id": "methods",
+      "menuLabel": "Methods",
+      "enabled": true,
+      "type": "list",
+      "label": "Methods",
+      "heading": "A deliberately narrow toolkit, applied carefully.",
+      "intro": "Primary human neutrophils are short-lived and readily activated by handling; every assay in the group is benchmarked against an unstimulated control drawn from the same donor within the same hour.",
+      "quote": "",
+      "attribution": "",
+      "items": [
+        { "title": "Live confocal imaging", "text": "", "note": "chemotaxis · 4D", "image": "", "link": "", "colour": "" },
+        { "title": "Microfluidic gradient chambers", "text": "", "note": "fMLP · C5a", "image": "", "link": "", "colour": "" },
+        { "title": "Flow cytometry", "text": "", "note": "18-colour panel", "image": "", "link": "", "colour": "" },
+        { "title": "Granule proteomics", "text": "", "note": "LC-MS/MS", "image": "", "link": "", "colour": "" },
+        { "title": "ROS kinetics", "text": "", "note": "luminol · DHR", "image": "", "link": "", "colour": "" },
+        { "title": "NET quantification", "text": "", "note": "citH3 · cfDNA", "image": "", "link": "", "colour": "" }
+      ]
+    },
+    {
+      "id": "statement",
+      "menuLabel": "",
+      "enabled": true,
+      "type": "quote",
+      "label": "",
+      "heading": "",
+      "intro": "",
+      "quote": "The neutrophil is often described as a blunt instrument. The evidence suggests the opposite: a cell capable of graded, reversible and spatially confined decisions, which happens to be committed to them irreversibly.",
+      "attribution": "Group research statement",
+      "items": []
+    },
+    {
+      "id": "people",
+      "menuLabel": "People",
+      "enabled": true,
+      "type": "people",
+      "label": "People",
+      "heading": "The group.",
+      "intro": "",
+      "quote": "",
+      "attribution": "",
+      "items": []
+    },
+    {
+      "id": "publications",
+      "menuLabel": "Publications",
+      "enabled": true,
+      "type": "publications",
+      "label": "Publications",
+      "heading": "Selected publications.",
+      "intro": "A complete and continuously updated list is available through the group's ORCID and PubMed records.",
+      "quote": "",
+      "attribution": "",
+      "items": []
+    },
+    {
+      "id": "news",
+      "menuLabel": "News",
+      "enabled": true,
+      "type": "news",
+      "label": "News",
+      "heading": "Announcements.",
+      "intro": "",
+      "quote": "",
+      "attribution": "",
+      "items": []
+    },
+    {
+      "id": "collaborations",
+      "menuLabel": "Collaborations",
+      "enabled": true,
+      "type": "logos",
+      "label": "Collaborations",
+      "heading": "Partners and funding.",
+      "intro": "The group's work is carried out in collaboration with the institutions below and supported by the funding bodies listed alongside them.",
+      "quote": "",
+      "attribution": "",
+      "items": []
+    }
+  ],
+  "peopleGroupOrder": [
+    "Principal Investigator",
+    "Postdoctoral Researchers",
+    "Doctoral Candidates",
+    "Research Staff",
+    "Alumni"
+  ],
+  "publicationsButton": {
+    "label": "",
+    "url": ""
   },
   "contact": {
-    "label": "Contact",
     "columns": [
       {
         "title": "Molecular Immunology Group",

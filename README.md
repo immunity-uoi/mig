@@ -47,17 +47,57 @@ automatically - they are described in `.pages.yml`, which is already set up.
 
 Three sections appear in the sidebar:
 
-| Section | What it holds |
+| Tab | What it holds |
 |---|---|
 | **People** | One entry per person: name, title, which heading they sit under, photo, short description, email, profile link |
 | **Publications** | One entry per paper: year, authors, title, journal, volume/pages, DOI, optional highlight star |
-| **Page text** | Everything else - the logo, menu labels, the opening screen, the five animation captions, research axes, methods, pull quote, footer |
+| **News** | Date, title, text, optional image and link. Newest first, automatically |
+| **Collaborations** | Partners and funders: name, note, optional logo and website |
+| **Page text** | The logo, the opening screen, the animation captions, the footer - and **Sections and menu**, which controls the page itself |
 
 Adding a person: open **People**, click the **+** on the list, fill the form,
 drag a photo into the Photo field, press **Save**. The site updates within a
 minute or so.
 
-**3. Changing the logo**
+**3. Adding, hiding or reordering sections**
+
+Open **Page text → Sections and menu**. Each entry in that list is one section
+of the page, and the top menu is built from the same list, in the same order.
+
+- **Hide one** - switch *Show this section* off. The section and its menu entry
+  disappear, and the content is kept for later.
+- **Reorder** - drag the entries. The page and the menu follow.
+- **Rename a menu entry** - the *Menu entry* field. Leaving it empty keeps the
+  section on the page but out of the menu.
+- **Add one** - press **+**, then fill in *Anchor name*, *Menu entry* and
+  *Kind of section*.
+
+*Anchor name* becomes part of the web address, so `news` gives
+`.../#news`. Use lower-case letters, numbers and hyphens, and give each section
+its own. Anything else typed there is cleaned up automatically.
+
+*Kind of section* decides the layout:
+
+| Kind | Layout | Content comes from |
+|---|---|---|
+| `text` | Headings and paragraphs | the Entries list in the same form |
+| `cards` | Grid of short cards with a coloured dot | the Entries list |
+| `list` | Two-column list, name left, note right | the Entries list |
+| `quote` | A single pull quote | the Quote and Attribution fields |
+| `people` | Portrait cards grouped by heading | the **People** tab |
+| `publications` | Numbered publication list | the **Publications** tab |
+| `news` | Dated announcements | the **News** tab |
+| `logos` | Grid of partner and funder logos | the **Collaborations** tab |
+
+The first four take their content from the *Entries* list inside the section
+itself, so a new section of kind `text`, `cards` or `list` needs no other tab
+and no change to the code. The last four draw on their own tabs, and their
+*Entries* list is ignored.
+
+A section with nothing in it is left out of the page rather than shown empty, so
+a half-finished entry does no harm.
+
+**4. Changing the logo**
 
 Open **Page text → Site and menu**. The *Logo (top left)* field takes an image by
 drag-and-drop; *Browser tab icon* sets the small icon in the browser tab.
@@ -68,7 +108,7 @@ sharp on high-resolution screens. Leaving the field empty hides the logo and
 keeps only the group name. If the file is ever missing, the logo is hidden
 rather than shown broken.
 
-**4. Invite colleagues**
+**5. Invite colleagues**
 
 In Pages CMS, invite people by email. They do **not** need a GitHub account.
 They see only the forms - never code, JSON or git.
@@ -80,10 +120,13 @@ They see only the forms - never code, JSON or git.
 Everything is plain text, so the files can also be edited directly on GitHub
 (click a file, then the pencil icon) or on your own computer.
 
-- `data/content.json` — all page text
+- `data/content.json` — page text, and the section list that builds the page
 - `data/people.json` — the group members
 - `data/publications.json` — the publication list
-- `images/people/` — photographs
+- `data/news.json` — announcements
+- `data/collaborations.json` — partners and funders
+- `images/people/` — portrait photographs
+- `images/logos/` — partner and funder logos
 
 Photos: square images work best, around 600×600 pixels. Anything much larger
 just makes the page slower to load. Point a person's `photo` field at the file,
@@ -109,16 +152,19 @@ Then open <http://localhost:8000>.
 ## What each file does
 
 ```
-index.html              page structure (empty containers, filled at load)
+index.html              page shell only; sections and menu are generated at load
 css/site.css            all styling; colours and spacing live in :root at the top
 js/site.js              reads /data, builds the page, never writes raw HTML
 js/scene.js             the scroll-linked 3D neutrophil animation
-data/content.json       page text, including which logo file to use
+data/content.json       page text + the section list that builds the page
 data/people.json        group members
 data/publications.json  publication list
+data/news.json          announcements
+data/collaborations.json  partners and funders
 images/logo.svg         logo shown in the top bar (replaceable from the CMS)
 images/favicon.svg      browser tab icon (replaceable from the CMS)
-images/people/          photographs
+images/people/          portrait photographs
+images/logos/           partner and funder logos
 .pages.yml              describes the editing forms for Pages CMS
 .nojekyll               tells GitHub Pages to serve files as they are
 ```
